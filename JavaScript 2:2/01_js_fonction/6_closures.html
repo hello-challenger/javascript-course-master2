@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript Function</title>
+	<!-- Isoler des variables dans un contexte local
+			elle permette d'isoler ses variables non global pour gagner en performance
+			-->
+	<script language="javascript">
+		//Notion de Hosting
+		"use strict"
+		var h = "hello";
+		w = "World";
+
+		console.log(h + " " + w);
+		var w;
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" target="_blank">
+				<h1>Closures</h1>
+			</a>
+
+			<p>A closure is the combination of a function bundled together (enclosed) with references to its surrounding
+				state (the
+				lexical environment). In other words, a closure gives you access to an outer function’s scope from an
+				inner function. In
+				JavaScript, closures are created every time a function is created, at function creation time.</p>
+
+		</div>
+	</main>
+	<script>
+		//____________________
+		//exemple 1
+		function getDays() {
+			var days = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+			console.log("Give me the day");
+			function getNomDuJours() {
+				var d = new Date();
+				console.log(days[d.getDay()]);
+			}
+			return getNomDuJours;
+		}
+
+		var f = getDays();
+		f();
+		f();
+		f();
+		f();
+		f();
+		f();
+	</script>
+
+</body>
+
+</html>

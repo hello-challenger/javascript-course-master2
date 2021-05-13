@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript The Objects</title>
+	<script language="javascript">
+		var salutation = {
+			"Good Morning": "Hello World",
+			"Bonjour": "Salut le monde",
+		}
+
+		console.log(salutation);
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/fr/docs/Glossary/Constructor" target="_blank">
+				<h1>The constructeur</h1>
+			</a>
+
+			<p>A constructor belongs to a particular class object that is instantiated. The constructor initializes this
+				object and can
+				provide access to its private information. The concept of a constructor can be applied to most
+				object-oriented
+				programming languages. Essentially, a constructor in JavaScript is usually declared at the instance of a
+				class.</p>
+			<a class="colorGrey" href="https://babeljs.io/" target="_blank">Test With Babeljs.io</a>
+
+		</div>
+	</main>
+	<script>
+		//exemple 1
+		console.log("Exemple 1");
+		//Création d'un prototype
+		var Client = function (n, p) {
+			this.nom = n;
+			this.prenom = p;
+			console.log("constructeur");
+		}
+
+		var c = new Client("JAMES", "Steve");
+		//.dir permet de décortiquer l'object.
+		console.dir(c);
+		//_____________
+		//exemple 2
+		console.log("Exemple 2");
+		//Création d'un constructor
+		var Client = function (n, p) {
+			this.nom = n;
+			this.prenom = p;
+			console.log("constructor");
+		}
+
+		var c = new Client("JAMES", "Steve");
+		//.dir permet de décortiquer l'object.
+		console.dir(c.constructor);
+		//_____________
+		//exemple 2
+		console.log("Exemple 3");
+		//Création d'un constructor
+		var Client = function (n, p) {
+			this.nom = n;
+			this.prenom = p;
+			console.log("constructor");
+		}
+
+		var newConstrutor = function () {
+			console.log("newConstructor");
+		}
+
+		Client.prototype.constructor = newConstrutor;
+
+		var c = new Client("JAMES", "Steve");
+		//.dir permet de décortiquer l'object.
+		console.dir(c.constructor);
+	</script>
+
+</body>
+
+</html>

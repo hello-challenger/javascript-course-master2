@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript Function</title>
+	<!-- La fonction immédiate : est auto-appelante  dès sa déclaration
+		Elle vas englober le code dans une paire de parenthèse.
+			-->
+	<script>
+		(function () {
+			var s = "World";
+			console.log("Hello " + s);
+		})();
+		//___________________
+		(function (w) {
+			console.log("Hello " + w);
+		})("World");
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/fr/docs/Glossary/IIFE" target="_blank">
+				<h1>Immediately Invoked Function</h1>
+			</a>
+			<p>It is a design pattern which is also known as a Self-Executing Anonymous Function and contains two major
+				parts:
+
+				The first is the anonymous function with lexical scope enclosed within the Grouping Operator (). This
+				prevents accessing
+				variables within the IIFE idiom as well as polluting the global scope.
+				The second part creates the immediately invoked function expression () through which the JavaScript
+				engine will directly
+				interpret the function.</p>
+		</div>
+	</main>
+	<script>
+		// Le nom de la variable n'est pas accessible depuis le périmètre externe
+		(function () {
+			// some initiation code
+			let firstVariable;
+			let secondVariable;
+		})();
+
+
+		// La fonction devient une expression de fonction qui est immédiatement
+		// exécutée. La variable dans l'expression ne peut pas être atteinte de l'extérieur.
+		const makeWithdraw = balance => (function (copyBalance) {
+			let balance = copyBalance; // This variable is private
+			let doBadThings = function () {
+				console.log("I will do bad things with your money");
+			};
+			doBadThings();
+			return {
+				withdraw: function (amount) {
+					if (balance >= amount) {
+						balance -= amount;
+						return balance;
+					} else {
+						return "Insufficient money";
+					}
+				},
+			}
+		})(balance);
+
+		const firstAccount = makeWithdraw(100); // "I will do bad things with your money"
+		console.log(firstAccount.balance); // undefined
+		console.log(firstAccount.withdraw(20)); // 80
+		console.log(firstAccount.withdraw(30)); // 50
+		console.log(firstAccount.doBadThings); // undefined, this method is private
+		const secondAccount = makeWithdraw(20);
+		secondAccount.withdraw(30); // "Insufficient money"
+		secondAccount.withdraw(20);  // 0
+	</script>
+
+</body>
+
+</html>

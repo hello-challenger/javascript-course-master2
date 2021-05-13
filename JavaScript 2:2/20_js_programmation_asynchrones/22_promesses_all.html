@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript Asynchronous Programming</title>
+	<script language="javascript">
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+				target="_blank">
+				<h1>Promises</h1>
+			</a>
+			<h2>Using Promises</h2>
+			<p>A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+				Since most people
+				are consumers of already-created promises, this guide will explain consumption of returned promises
+				before explaining
+				how to create them.
+
+				Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks
+				into a function.
+
+				Imagine a function, createAudioFileAsync(), which asynchronously generates a sound file given a
+				configuration record and
+				two callback functions, one called if the audio file is successfully created, and the other called if an
+				error occurs.</p>
+		</div>
+	</main>
+	<script>
+		//exemple5
+		//Avec l'objet all
+		var a;
+		var b;
+
+		var p1 = new Promise(function (resolve, reject) {
+			setTimeout(function () {
+				console.log("Set a");
+				a = 15;
+				resolve(a);
+			}, 3000);
+		});
+
+		var p2 = new Promise(function (resolve, reject) {
+			setTimeout(function () {
+				console.log("Set b");
+				b = 20;
+				resolve(b);
+			}, 2000);
+		});
+
+		var arr = [p1, p2];
+
+		Promise.all(arr).then(function (result) {
+			console.dir(result);
+			var c = result[0] + result[1];
+			console.log(c);
+		});
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript Function</title>
+	<!-- Isoler des variables dans un contexte local
+			elle permette d'isoler ses variables non global pour gagner en performance
+			-->
+	<script>
+		var salut = function () {
+			a = "hello";
+			b = "World";
+			console.log(a + " " + b);
+		}
+		salut();
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<div>
+				<img src="../img/javascript.png" alt="javascript avec le code function">
+			</div>
+			<a href="https://en.wikibooks.org/wiki/JavaScript/Anonymous_functions" target="_blank">
+				<h1>Function Anonyme</h1>
+			</a>
+			<p>An anonymous function is a function that was declared without any named identifier to refer to it. As
+				such, an anonymous
+				function is usually not accessible after its initial creation.</p>
+		</div>
+	</main>
+	<script>
+		// fonction de type namespace (Comme php) ) or package (Comme C)
+		//fonction anonyme permet de cloisonné les variables pour qu'elle ne fuite pas
+		var namespace = function () {
+			var a = 3.1415;
+			var b = "est la valeur de π (Pi) \nappelé parfois constante d’Archimède";
+			console.log(a + " " + b);
+		}
+		namespace();
+	</script>
+	<script>
+		var a = function () {
+			alert("hello, world");
+		}
+		function sum(a, b) {
+			return a + b;
+		}
+
+		var a = sum(16, 22);
+		console.log(a);
+	</script>
+</body>
+
+</html>

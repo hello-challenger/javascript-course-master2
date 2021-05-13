@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript Asynchronous Programming</title>
+	<script language="javascript">
+		//callback hell or pyramide of doom
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="http://callbackhell.com/" target="_blank">
+				<h1>Callback Hell</h1>
+			</a>
+			<h2>Asynchronous JavaScript</h2>
+			<p>For reasons illustrated earlier (e.g. related to blocking), many Web API features now use asynchronous
+				code to run,
+				especially those that access or fetch some kind of resource from an external device, such as fetching a
+				file from the
+				network, accessing a database and returning data from it, accessing a video stream from a web cam, or
+				broadcasting the
+				display to a VR headset.
+
+				Why is this difficult to get to work using synchronous code? Let's look at a quick example. When you
+				fetch an image from
+				a server, you can't return the result immediately. That means that the following (pseudocode) wouldn't
+				work:</p>
+		</div>
+	</main>
+	<script>
+		//exemple1
+		getTodo(1, function (resultToDo1) {
+			getInfoTodo(resultToDo1, function (resultInfoToDo2) {
+				getInfoTODO(resultInfoToDo2, function (resultInfoToDo3) {
+					//Le code à executé;
+				});
+			});
+		});
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript The Objects</title>
+	<script language="javascript">
+		var salutation = {
+			"Good Morning": "Hello World",
+			"Bonjour": "Salut le monde",
+		}
+
+		console.log(salutation);
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/fr/docs/Glossary/Encapsulation" target="_blank">
+				<h1>Encapsulation</h1>
+			</a>
+
+			<p>Encapsulation is the packing of data and functions into one component (for example, a class) and then
+				controlling access
+				to that component to make a "blackbox" out of the object. Because of this, a user of that class only
+				needs to know its
+				interface (that is, the data and functions exposed outside the class), not the hidden implementation.
+			</p>
+		</div>
+	</main>
+	<script>
+		//exemple 1 => INSTANCE PUBLIC
+		console.log("Exemple 1 => INSTANCE PUBLIC");
+		//Acceder au donnée public de l'objet
+		var Client = function (n, p) {
+			this.nom = n;
+			this.prenom = p;
+		}
+
+		var c = new Client("JAMES", "Steve");
+		console.log(c.nom);
+		//___________________
+		//exemple 2 => INSTANCE PUBLIC
+		console.log("Exemple 2 => INSTANCE PUBLIC");
+		//Une autre méthode pour acceder au donnée public de l'objet
+		var Client = function (n, p) {
+			this.nom = n;
+			this.prenom = p;
+			this.getNom = function () {
+				return this.nom;
+			}
+		}
+
+		var c1 = new Client("WILSON", "james");
+		console.log(c1.nom);
+		console.log(c1.getNom());
+		//___________________
+		//exemple 3 => INSTANCE PRIVATE
+		console.log("Exemple 3 => INSTANCE PRIVATE");
+		//Une autre méthode pour acceder au donnée public de l'objet
+		var Client = function (n, p) {
+			var nom = n;
+			var prenom = p;
+			this.getNom = function () {
+				return nom;
+			}
+		}
+
+		var c2 = new Client("BRANDT", "eddy");
+		console.log(c2.nom);
+		console.log(c2.getNom());
+	</script>
+
+</body>
+
+</html>

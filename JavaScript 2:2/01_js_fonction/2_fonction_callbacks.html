@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<link rel="stylesheet" href="../css/style.css">
+	<title>JavaScript Function</title>
+	<!-- Isoler des variables dans un contexte local
+		elle permette d'isoler ses variables non global pour gagner en performance
+		-->
+	<script language='javascript'>
+		var doLoad = function () {
+			console.log("Windows loaded");
+		}
+		window.onload = doLoad
+		// _________________
+		//exemple 1
+		var salut = function () {
+			a = "hello";
+			b = "World";
+			console.log(a + " " + b);
+		}
+		salut();
+	</script>
+	</script>
+</head>
+
+<body>
+
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/fr/docs/Glossary/Callback_function" target="_blank">
+				<h1>Function Callbacks</h1>
+			</a>
+			<p>Une fonction de rappel (aussi appelée callback en anglais) est une fonction passée dans une autre
+				fonction en tant
+				qu'argument, qui est ensuite invoquée à l'intérieur de la fonction externe pour accomplir une sorte de
+				routine ou
+				d'action.</p>
+		</div>
+	</main>
+
+	<script>
+		// les fonctions de rappel en français
+		// Plus souvent utilisé pour la programmation évènementiel ou de l'Ajax
+		// du onClick, du onMachin, du onLoad elle sont donc executé au bon moment
+		function irrational(f) {
+			console.log(f());
+		}
+
+		irrational(function () {
+			return Math.PI;
+		});
+		//exemple 2
+		var show = function (a) {
+			console.log("show : " + a);
+		}
+
+		function sum(a, b, affiche) {
+			var c = a + b;
+			affiche(c);
+			return (c);
+		}
+
+		var result = sum(12, 34, show);
+
+		// exemple 3 > with prompt
+		function salutation(name) {
+			alert('Bonjour ' + name);
+		}
+
+		function processUserInput(callback) {
+			var name = prompt('Entrez votre nom.');
+			callback(name);
+		}
+
+		processUserInput(salutation);
+
+	</script>
+	<!--exemple 4-->
+	<div class="button">
+		<ul>
+			<li>Event cLick 1</li>
+			<li>Event cLick 2</li>
+			<li>Event cLick 3</li>
+		</ul>
+	</div>
+
+	<script>
+		var elements = document.getElementsByTagName('li');
+
+		for (var i = 0; i < elements.length; i++) {
+			elements[i].addEventListener('click', function (local_cpt) {
+				return function () {
+					console.log(elements[local_cpt].innerText);
+				}
+			}(i));
+		}
+	</script>
+
+</body>
+
+</html>

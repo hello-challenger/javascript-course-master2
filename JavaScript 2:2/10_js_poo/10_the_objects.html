@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript The Objects</title>
+	<script language="javascript">
+		var salutation = {
+			"Good Morning": "Hello World",
+			"Bonjour": "Salut le monde",
+		}
+
+		console.log(salutation);
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/Objects/Object-oriented_JS" target="_blank">
+				<h1>object oriented programming</h1>
+			</a>
+
+			<p>With the basics out of the way, we'll now focus on object-oriented JavaScript (OOJS) — this article
+				presents a basic
+				view of object-oriented programming (OOP) theory, then explores how JavaScript emulates object classes
+				via constructor
+				functions, and how to create object instances.</p>
+
+		</div>
+	</main>
+	<script>
+		//____________________
+		//exemple 1
+		var days = {
+			//JSON => Javascript Object Notification
+			"J_0": "dimanche",
+			"J_1": "lundi",
+			"J_2": "mardi",
+			//key J-3 error
+			"J-3": "mercredi",
+			"J_4": "jeudi",
+			"J_5": "vendredi",
+			//key J 6 error
+			"J 6": "samedi",
+		}
+
+		console.log(days);
+		console.log(days.J_2);
+		console.log(days.J - 3);
+		//console.log(days.J 6);
+		//____________________
+		//exemple 2 - tableau associatif
+		var days = {
+			"J0": "dimanche",
+			"J1": "lundi",
+			"J2": "mardi",
+			"J3": "mercredi",
+			"J4": "jeudi",
+			"J5": "vendredi",
+			"J6": "samedi",
+		}
+		// On apelle l'ensemble des key's
+		for (d in days) {
+			console.log(d);
+		}
+
+		console.log(days);
+
+		// On apelle l'ensemble des key's
+		for (d in days) {
+			console.log(d + " " + days[d]);
+		}
+
+		console.log(days.J2);
+	</script>
+
+</body>
+
+</html>

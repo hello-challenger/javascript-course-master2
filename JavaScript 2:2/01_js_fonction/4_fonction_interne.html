@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript Function</title>
+	<!-- Isoler des variables dans un contexte local
+			elle permette d'isoler ses variables non global pour gagner en performance
+			-->
+	<script language="javascript">
+		//Single line comment
+		//Addition of two numbers
+		var a = "Hello";
+		var b = "World";
+		var c = a + b; //addition of a and b is store in c variable
+		document.write("La concaténation de " + a + " + " + b + " donne " + c);
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions" target="_blank">
+				<h1>Inner Function > Fonction interne</h1>
+			</a>
+
+			<p>Les fonctions sont typées comme des variables
+				• On peut donc les déclarer dans une fonction comme de simples
+				variables</p>
+
+		</div>
+	</main>
+	<script>
+		//exempe 1
+		function externe() {
+			var x = 10;
+			function interne(x) {
+				return x;
+			}
+			return interne;
+		}
+		résultat = externe()(20);
+		//________________________
+		//exemple 2 MultiPar2 n'est pas accessible
+		function doMult(a) {
+			function MultiPart2(b) {
+				return b * 2;
+			};
+			return 'resultat : ' + MultiPart2(a);
+		}
+
+
+		var r = doMult(2);
+		console.log(r);
+		//_______________________
+		//exemple 3 - cas d'une fonction intern renvoyer par un return
+		function sayHello() {
+			console.log('hello');
+			return function () {
+				console.log('World');
+			};
+		}
+		var func = sayHello();
+		func();
+		//_____________________
+		//exemple 4
+		function ajouteCarres(a, b) {
+			function carre(x) {
+				return x * x;
+			}
+			return carre(a) + carre(b);
+		}
+		var a = ajouteCarres(2, 3); // renvoie 13
+		var b = ajouteCarres(3, 4); // renvoie 25
+		var c = ajouteCarres(4, 5); // renvoie 41
+
+		console.log(a);
+		console.log(b);
+		console.log(c);
+	</script>
+
+</body>
+
+</html>

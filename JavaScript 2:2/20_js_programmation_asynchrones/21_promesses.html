@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript Asynchronous Programming</title>
+	<script language="javascript">
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+				target="_blank">
+				<h1>Promises</h1>
+			</a>
+			<h2>Using Promises</h2>
+			<p>A Promise is an object representing the eventual completion or failure of an asynchronous operation.
+				Since most people
+				are consumers of already-created promises, this guide will explain consumption of returned promises
+				before explaining
+				how to create them.
+
+				Essentially, a promise is a returned object to which you attach callbacks, instead of passing callbacks
+				into a function.
+
+				Imagine a function, createAudioFileAsync(), which asynchronously generates a sound file given a
+				configuration record and
+				two callback functions, one called if the audio file is successfully created, and the other called if an
+				error occurs.</p>
+		</div>
+	</main>
+	<script>
+		//exemple1
+		var a;
+		var b;
+
+		setTimeout(function () {
+			console.log("set a");
+			var a = 2;
+		}, 1000);
+
+		setTimeout(function () {
+			console.log("set b");
+			var b = 2;
+		}, 2000);
+
+		var c = a + b;
+		console.log(c);
+		//______________
+		//exemple2 => enchainement de code syncro pour le faire en asyncrone
+		var a1 = undefined;
+		var b1 = undefined;
+
+		setTimeout(function () {
+			console.log("set a1");
+			a1 = 15;
+			setTimeout(function () {
+				console.log("set b1");
+				var b1 = 23;
+				var c1 = a1 + b1;
+				console.log(c1);
+			}, 1000);
+		}, 2000);
+		//______________
+		//exemple3
+		//Promise est un object de EMCScript 2015 et resolve & reject sont des fonctions de javascript
+		var p1 = new Promise(function (resolve, reject) {
+			setTimeout(function () {
+				var promise1 = "User Promise 1";
+				resolve(promise1);
+				console.log("test de la promesse");
+			}, 4000);
+		});
+		//Ce code est executer après la promise
+		p1.then(function (val_promise1) {
+			console.log("after " + val_promise1);
+		});
+		//______________
+		//exemple4
+		//Mettre 2 promesse en asyncrone.
+		var p2 = new Promise(function (resolve, reject) {
+			setTimeout(function () {
+				var promise2 = "User Of The Promise 2";
+				resolve(promise2);
+				console.log("test de la promesse exemple 4");
+			}, 4000);
+		});
+
+		//Ce code est executer après la promise
+		p2.then(function (result_P2) {
+			var promise3 = new Promise(function (resolve, reject) {
+				setTimeout(function () {
+					var promise4 = "User Of The Promise 3 & ";
+					resolve(promise4 + result_P2);
+				}, 6000);
+			});
+			return promise3;
+		})
+			.then(function (result_P2_P3) {
+				console.log(result_P2_P3);
+			});
+		//_____________________
+		//exemple5
+		//Avec l'objet all
+		var s;
+		var r;
+
+
+		var promesse2 = new Promise(function (resolve, reject) {
+			setTimeout(function () {
+				console.log("Set S");
+				s = 30;
+				resolve(s);
+			}, 7000);
+		});
+
+		var promesse3 = new Promise(function (resolve, reject) {
+			setTimeout(function () {
+				console.log("Set R");
+				r = 20;
+				resolve(r);
+			}, 4000);
+		});
+
+		var arr = [promesse2, promesse3];
+
+		Promise.all(arr).then(function (result) {
+			console.dir(result);
+			var c = result[0] + result[1];
+			console.log(c);
+		});
+	</script>
+
+</body>
+
+</html>

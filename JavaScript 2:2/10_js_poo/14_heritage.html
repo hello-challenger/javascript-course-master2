@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript The Objects</title>
+	<script language="javascript">
+		var salutation = {
+			"Good Morning": "Hello World",
+			"Bonjour": "Salut le monde",
+		}
+
+		console.log(salutation);
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/Objects/Inheritance" target="_blank">
+				<h1>Inheritance</h1>
+			</a>
+
+			<p>With most of the gory details of OOJS now explained, this article shows how to create "child" object
+				classes
+				(constructors) that inherit features from their "parent" classes. In addition, we present some advice on
+				when and where
+				you might use OOJS, and look at how classes are dealt with in modern ECMAScript syntax.
+			</p>
+		</div>
+	</main>
+	<script>
+		//exemple 1
+		console.log("Exemple 1");
+		//_________________________
+		var Object1 = function () {
+			this.name = "Object1";
+			this.toString = function () {
+				return this.name;
+			}
+		}
+
+		var Object2 = function () {
+			this.name = "Object2";
+		}
+		var o1 = new Object2();
+
+		console.dir(o1);
+		console.log(o1.toString());
+
+		//________________________
+		//exemple 2
+		console.log("Exemple 2");
+		//________________________
+		//Le chaînage par prototype
+		//Bloc chain sur Object3 appeller polymorphisme
+		var Object3 = function () {
+			this.name = "Object3";
+			this.toString = function () {
+				return this.name;
+			}
+		}
+
+		var Object4 = function () {
+			this.name = "Object4";
+		}
+
+		Object4.prototype = new Object3();
+		Object4.prototype.constructor = Object4;
+
+		var o2 = new Object4();
+
+		console.dir(o2);
+		console.log(o2.toString());
+	</script>
+
+</body>
+
+</html>

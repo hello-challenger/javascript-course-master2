@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript The Objects</title>
+	<script language="javascript">
+		var salutation = {
+			"Good Morning": "Hello World",
+			"Bonjour": "Salut le monde",
+		}
+
+		console.log(salutation);
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/fr/docs/Learn/JavaScript/Objects/Object_prototypes" target="_blank">
+				<h1>prototypes</h1>
+			</a>
+
+			<p>Prototypes are the mechanism by which JavaScript objects inherit features from one another. In this
+				article, we explain
+				how prototype chains work and look at how the prototype property can be used to add methods to existing
+				constructors.
+
+				Note: This article covers traditional JavaScript constructors and classes. In the next article, we talk
+				about the modern
+				way of doing things, which provides easier syntax to achieve the same things — see ECMAScript 2015
+				classes.</p>
+
+		</div>
+	</main>
+	<script>
+		//____________________
+		//exemple 1
+		//Création d'un object
+		var client1 = {
+			nom: "DUPONT",
+			prenom: "Eric"
+		}
+		//____________________
+		//exemple 2
+		//Création d'un prototype
+		var Client1 = function (n, p) {
+			this.nom = n;
+			this.prenom = p;
+		}
+
+		var c1 = new Client1("DURANT", "Norbert");
+		//.dir permet de décortiquer l'object.
+		console.dir(c1);
+		//exemple 3
+		var Client2 = function (n, p) {
+			this.nom = n;
+			this.prenom = p;
+		}
+
+		var c2 = new Client2("PIERRE", "Pascal");
+		var c3 = new Client2("GARCIA", "José");
+		//additionner une méthode au prototype Client2
+		c2.age = 42;
+		c2.getAge = function () {
+			return this.age
+		}
+
+		console.dir(c2);
+		//c3 N'hérite pas de la méthode age instancé.
+		console.dir(c3);
+		//________________
+		//exemple 4
+		var Client3 = function (n, p) {
+			this.nom = n;
+			this.prenom = p;
+		}
+
+		var c2 = new Client3("PIERRE", "Pascal");
+		var c3 = new Client3("GARCIA", "José");
+		//additionner une méthode au prototype Client2
+		Client3.prototype.age = 42;
+		Client3.prototype.getAge = function () {
+			return this.age
+		}
+
+		console.dir(c2);
+		//c3 hérite de la méthode age instancé.
+		console.dir(c3);
+		//____________________
+		//exemple 5
+		function Personne(prenom, nom, age, genre, interets) {
+
+			// property and method definitions
+
+		};
+
+		var personne1 = new Personne('Bob', 'Smith', 32, 'homme', ['musique', 'ski']);
+		// enter in console Web "personnel1"
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="icon" type="image/png" href="../javascript_128x128.png" sizes="128x128" />
+	<title>JavaScript Function</title>
+	<!-- Isoler des variables dans un contexte local
+			elle permette d'isoler ses variables non global pour gagner en performance
+			-->
+	<script language="javascript">
+		//Notion de Hosting
+		"use strict"
+		var h = "hello";
+		w = "World";
+
+		console.log(h + " " + w);
+		var w;
+	</script>
+</head>
+
+<body>
+	<main>
+		<div class="cadre">
+			<img src="../img/javascript.png" alt="javascript avec le code function">
+			<a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope" target="_blank">
+				<h1>Scope</h1>
+			</a>
+
+			<p>The current context of execution. The context in which values and expressions are "visible" or can be
+				referenced. If a
+				variable or other expression is not "in the current scope," then it is unavailable for use. Scopes can
+				also be layered
+				in a hierarchy, so that child scopes have access to parent scopes, but not vice versa.
+
+				A function serves as a closure in JavaScript, and thus creates a scope, so that (for example) a variable
+				defined
+				exclusively within the function cannot be accessed from outside the function or within other functions.
+				For instance,
+				the following is invalid:</p>
+
+		</div>
+	</main>
+	<script>
+		//_________________
+		//exemple 1
+		//variable is not a fuction
+		/*
+		doSomething();
+		var doSomething = function () {
+			console.log('doSomething is not function');
+		}
+		*/
+		//_________________
+		//variable is not a fuction
+		var doSomething = function () {
+			console.log('doSomething is function');
+		}
+		doSomething();
+		//_______________
+		//exemple 2
+		var x = "declared outside function";
+
+		exampleFunction();
+
+		function exampleFunction() {
+			console.log("Inside function");
+			console.log(x);
+		}
+
+		console.log("Outside function");
+		console.log(x);
+
+	</script>
+
+</body>
+
+</html>
